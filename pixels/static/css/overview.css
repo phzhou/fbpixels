@@ -1,0 +1,27 @@
+/* style for overview page */
+#overview .panel {
+  height: 290px;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+#overview .panel p {
+  margin: 35px;
+  width: 350px;
+}
+
+#overview .panel .btn {
+  margin-left: 35px;
+}
+
+#overview #wca {
+  background-image: url('/static/images/wca.jpg');
+}
+
+#overview #conversion {
+  background-image: url('/static/images/conversion.jpg');
+}
+
+#overview #helper {
+  background-image: url('/static/images/helper.jpg');
+}

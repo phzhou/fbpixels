@@ -1,0 +1,222 @@
+{% extends 'pixels/base.html' %}
+{% block content %}
+
+<!-- JS functions for dynamic pixel events
+-->
+<script>
+function reportViewContent(productIds) {
+  alert("ViewContent event triggered!");
+  fbq.push(["track", "ViewContent", {
+    content_ids: productIds,
+    content_type: 'product'
+  }]);
+}
+
+function reportAddToCart(productIds) {
+  alert("AddToCart event triggered!");
+  fbq.push(["track", "AddToCart", {
+    content_ids: productIds,
+    content_type: 'product'
+  }]);
+}
+
+function reportPurchase(productIds) {
+  alert("Purchase event triggered!");
+  fbq.push(["track", "Purchase", {
+    content_ids: productIds,
+    content_type: 'product'
+  }]);
+}
+</script>
+
+<div class="col-md-9" id="mainCol">
+
+  <a class="anchor" id="sec-dpa"></a>
+  <h1>{{messages.dpa_title}}</h1>
+
+  <div class="row">
+  <img class="col-md-12" src="/static/images/dpa.png" />
+  </div>
+  <p></p>
+  <p>{{messages.dpa_p_1}}</p>
+  <p>{{messages.dpa_p_2}}</p>
+  <p>{{messages.dpa_p_3}}</p>
+  <p>{{messages.dpa_p_4}}</p>
+  <ul>
+    <li>{{messages.dpa_li_1}}</li>
+    <li>{{messages.dpa_li_2}}</li>
+    <li>{{messages.dpa_li_3}}</li>
+    <li>{{messages.dpa_li_4}}</li>
+  </ul>
+
+  <p>{{messages.dpa_p_5}}</p>
+  <div class="row">
+  <img class="col-md-12" src="/static/images/dpa_template.png" />
+  </div>
+
+  <p/>
+  <p>{{messages.dpa_p_6}}</p>
+  <div class="row">
+  <img class="col-md-12" src="/static/images/dpa_creative.png" />
+  </div>
+
+  <p/>
+  <p>{{messages.dpa_p_7}}</p>
+
+  <a class="anchor" id="sec-pixels"></a>
+  <h1>DPA Pixel Events</h1>
+  <p>{{messages.dpa_p_8}}</p>
+  <p>{{messages.dpa_p_9}}</p>
+  <ul>
+    <li>ViewContent</li>
+    <li>AddToCart</li>
+    <li>Purchase</li>
+  </ul>
+  <p>{{messages.dpa_p_10}}</p>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Field Name</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Required</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row_0">
+        <td><p><code>content_type</code></p></td>
+        <td><p>either <code>&#039;product&#039;</code> or <code>&#039;product_group&#039;</code></p></td>
+        <td><p><code>string</code></p></td>
+        <td><p>yes</p></td>
+      </tr>
+      <tr class="row_1">
+        <td><p><code>content_ids</code></p></td>
+        <td><p>The retailer&#039;s product or product group id(s)</p></td>
+        <td><p><code>string</code> or <code>string[]</code></p></td>
+        <td><p>yes</p>
+        </td></tr><tr class="row_2"><td><p><code>product_catalog_id</code></p></td>
+        <td><p>A product catalog to be used.  Necessary if the Business has multiple catalogs and those catalogs have not been associated with the pixel</p></td>
+        <td><p><code>string</code></p></td>
+        <td><p>no</p></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>{{messages.dpa_p_11}}</p>
+  <p>{{messages.dpa_p_12}}</p>
+
+  <p>{{messages.dpa_p_13}}</p>
+
+<pre><code class="language-javascript line-numbers">
+&lt;script&gt;
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version=&#39;2.0&#39;;n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,&#39;script&#39;,&#39;//connect.facebook.net/en_US/fbevents.js&#39;);
+// Insert Your Custom Audience Pixel ID below.
+fbq(&#39;init&#39;, &#39;&lt;FB_PIXEL_ID&gt;&#39;);
+fbq(&#39;track&#39;, &#39;ViewContent&#39;, {
+  content_name: &#39;Really Fast Running Shoes&#39;,
+  content_category: &#39;Apparel &amp; Accessories &gt; Shoes&#39;,
+  content_ids: [&#39;1234&#39;],
+  content_type: &#39;product&#39;,
+  value: 0.50,
+  currency: &#39;USD&#39;
+});
+&lt;/script&gt;</code></pre>
+
+  <p>{{messages.dpa_p_14}}</p>
+
+<pre><code class="language-javascript line-numbers">
+&lt;script&gt;
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version=&#39;2.0&#39;;n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,&#39;script&#39;,&#39;//connect.facebook.net/en_US/fbevents.js&#39;);
+// Insert Your Custom Audience Pixel ID below.
+fbq(&#39;init&#39;, &#39;&lt;FB_PIXEL_ID&gt;&#39;);
+fbq(&#39;track&#39;, &#39;AddToCart&#39;, {
+  content_name: &#39;Shopping Cart&#39;,
+  content_ids: [&#39;1234&#39;, &#39;1853&#39;, &#39;9386&#39;],
+  content_type: &#39;product&#39;,
+  value: 3.50,
+  currency: &#39;USD&#39;
+});
+&lt;/script&gt;</code></pre>
+
+  <p>{{messages.dpa_p_15}}</p>
+
+<pre><code class="language-markup line-numbers">
+&lt;!-- On your add-to-cart button if it&#039;s done through JavaScript / AJAX --&gt;
+&lt;button onclick=&#039;fbq([&quot;track&quot;, &quot;AddToCart&quot;, &#123; content_ids: [&quot;&lt;product_id&gt;&quot;], content_type: &quot;product&quot;&#125;])&#039;&gt;Add to Cart&lt;/button&gt;</code></pre>
+
+  <p>{{messages.dpa_p_16}}</p>
+
+<pre><code class="language-javascript line-numbers">
+&lt;script&gt;
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version=&#39;2.0&#39;;n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,&#39;script&#39;,&#39;//connect.facebook.net/en_US/fbevents.js&#39;);
+// Insert Your Custom Audience Pixel ID below.
+fbq(&#39;init&#39;, &#39;&lt;FB_PIXEL_ID&gt;&#39;);
+fbq(&#39;track&#39;, &#39;Purchase&#39;, {
+  content_ids: [&#39;1234&#39;, &#39;4642&#39;, &#39;35838&#39;],
+  content_type: &#39;product&#39;,
+  value: 247.35,
+  currency: &#39;USD&#39;
+});
+&lt;/script&gt;</code></pre>
+
+  <a class="anchor" id="sec-sample"></a>
+  <h1>DPA Pixel Sample</h1>
+  <p>{{messages.dpa_p_17}}</p>
+
+  <p>{{messages.dpa_p_18}}</p>
+
+<pre><code class="language-javascript line-numbers">function reportViewContent(productIds) {
+  alert(&quot;ViewContent event triggered!&quot;);
+  fbq.push([&#39;track&#39;, &#39;ViewContent&#39;, {
+    content_ids: productIds,
+    content_type: &#39;product&#39;
+  }]);
+}
+
+function reportAddToCart(productIds) {
+  alert(&quot;AddToCart event triggered!&quot;);
+  fbq.push([&#39;track&#39;, &#39;AddToCart&#39;, {
+    content_ids: productIds,
+    content_type: &#39;product&#39;
+  }]);
+}
+
+function reportPurchase(productIds) {
+  alert(&quot;Purchase event triggered!&quot;);
+  fbq.push([&quot;track&quot;, &quot;Purchase&quot;, {
+    content_ids: productIds,
+    content_type: &#39;product&#39;
+  }]);
+}</code></pre>
+
+  <p>{{messages.dpa_p_19}}</p>
+  <p>{{messages.dpa_p_20}}</p>
+
+
+  <div class="row" id="shop-react"></div>
+  <script type="text/jsx" src="/static/scripts/cart.jsx"></script>
+
+</div><!-- id="mainCol" -->
+
+<div class="col-md-3" id="rightCol">
+  <ul class="nav nav-stacked" id="sidebar">
+    <li><a href="#sec-dpa">Dynamic Product Ads</a></li>
+    <li><a href="#sec-pixels">DPA Pixel Events</a></li>
+    <li><a href="#sec-sample">DPA Pixel Sample</a></li>
+  </ul>
+</div>
+
+<!-- Dynamic WCA code end -->
+{% endblock %}

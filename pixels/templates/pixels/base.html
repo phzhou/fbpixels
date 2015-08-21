@@ -1,0 +1,157 @@
+<!-- Welcome to the source code for some Facebook pixel tests. You will be able to find the pixel code in the page source inside <head>.
+doctype html -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Facebook Pixel Samples</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/prism.css" rel="stylesheet">
+    <link href="/static/css/common.css" rel="stylesheet">
+    <link href="/static/css/shopping.css" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon"
+      href="/static/images/favicon.ico">
+
+    <!-- Required JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/static/scripts/bootstrap.min.js"></script>
+    <script src="/static/scripts/react.min.js"></script>
+    <script src="/static/scripts/JSXTransformer.js"></script>
+    <script src="/static/scripts/prism.js"></script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '184295785098311');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=184295785098311&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Sidebar -->
+    <script>
+      $('body').ready(function (){
+        $('#sidebar').affix({
+          offset: {
+            top: 245,
+            bottom: ($('.footer').outerHeight(true))
+          }
+        });
+        $('body').scrollspy({
+          target: '#rightCol'
+        });
+        var action = '{{action}}';
+        $("header li#" + action).addClass('active');
+      });
+    </script>
+    <!-- Highlight nav item end -->
+
+  </head>
+
+  <body>
+
+    <!-- Header -->
+    <header class="navbar nav navbar-fixed-top" role="banner">
+      <div class="container">
+
+        <nav class="collapse navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li id="overview" role="presentation">
+              <a href="/">{{messages.overview_title}}</a>
+            </li>
+            <li id="up" role="presentation">
+              <a href="/up">{{messages.up_title}}</a>
+            </li>
+            <li id="conversion" role="presentation">
+              <a href="/conversion">{{messages.cvrp_title}}</a>
+            </li>
+            <li id="dpa" role="presentation">
+              <a href="/dpa">Dynamic Product Ads</a>
+            </li>
+            <li id="manager" role="presentation">
+              <a href="/manager">{{messages.gtm_title}}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div id="masthead" class="jumbotron">
+      <div class="container">
+        <h1>{{messages.page_title}}</h1>
+      </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+      <div class="row">
+        {% block content %}
+          Placeholder for page content
+        {% endblock %}
+      </div>
+    </div><!-- container -->
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- Navigation -->
+          <div class="col-md-4">
+            <h5>Navigation</h5>
+            <ul>
+              <li>
+                <a href="/">{{messages.overview_title}}</a>
+              </li>
+              <li>
+                <a href="/up">{{messages.up_title}}</a>
+              </li>
+              <li>
+                <a href="/conversion">{{messages.cvrp_title}}</a>
+              </li>
+              <li>
+                <a href="/dpa">Dynamic Product Ads</a>
+              </li>
+              <li>
+                <a href="/manager">{{messages.gtm_title}}</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- References -->
+          <div class="col-md-4">
+            <h5>References</h5>
+            <ul>
+              <li>
+                <a href="https://developers.facebook.com/docs/ads-for-websites">Ads for Websites</a>
+              </li>
+              <li>
+                <a href="https://developers.facebook.com/docs/ads-for-websites/drive-conversions">Conversion Tracking</a>
+              </li>
+              <li>
+                <a href="https://developers.facebook.com/docs/ads-for-websites/website-custom-audiences/getting-started">Website Custom Audiences</a>
+              </li>
+              <li>
+                <a href="https://developers.facebook.com/docs/ads-for-websites/website-custom-audiences/planning">Pixel Planning</a>
+              </li>
+              <li>
+                <a href="https://developers.facebook.com/docs/marketing-api/dynamic-product-ads/">Dynamic Product Ads</a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

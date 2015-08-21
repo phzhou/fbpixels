@@ -1,0 +1,141 @@
+{% extends 'pixels/base.html' %}
+{% block content %}
+<div class="col-md-9" id="mainCol">
+
+<!-- Conversion pixel start -->
+<script>
+(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6014777872661', {'value':'0.00','currency':'USD'}]);
+</script>
+<noscript>
+  <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6014777872661&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" />
+</noscript>
+<!-- Conversion pixel end -->
+
+<div id="conversionpixel">
+
+  <a class="anchor" id="sec-pixel"></a>
+  <h1>{{messages.cvrp_title}}</h1>
+  <p>{{messages.cvrp_p_1}}</p>
+  <pre><code class="language-markup line-numbers">&lt;script&gt;
+(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement(&#39;script&#39;);
+    fbds.async = true;
+    fbds.src = &#39;//connect.facebook.net/en_US/fbds.js&#39;;
+    var s = document.getElementsByTagName(&#39;script&#39;)[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+<span class="blue">window._fbq = window._fbq || [];
+window._fbq.push([&#39;track&#39;, &#39;6014777872661&#39;, {&#39;value&#39;:&#39;0.00&#39;,&#39;currency&#39;:&#39;USD&#39;}]);</span>
+&lt;/script&gt;
+&lt;noscript&gt;
+  <span class="green">&lt;img height=&quot;1&quot; width=&quot;1&quot; alt=&quot;&quot; style=&quot;display:none&quot; src=&quot;https://www.facebook.com/tr?ev=6014777872661&amp;amp;cd[value]=0.00&amp;amp;cd[currency]=USD&amp;amp;noscript=1&quot; /&gt;</span>
+&lt;/noscript&gt;</code></pre>
+  <p>{{messages.cvrp_p_2}}</p>
+  <p>{{messages.cvrp_p_3}}</p>
+
+  <a class="anchor" id="sec-dynamic"></a>
+  <h1>{{messages.cvrp_title_1}}</h1>
+  <p>{{messages.cvrp_p_4}}</p>
+
+  <div id="conversion-button-panel" class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{messages.conversion_panel_head_1}}</h3>
+    </div>
+    <div class="panel-body">
+      <p>{{messages.cvrp_p_5}}</p>
+      <p>{{messages.cvrp_p_6}}</p>
+
+      <form class="form-inline">
+        <label class="i18n" msg="cvrp_p_7" for="conversion-select"></label>
+        <select id="conversion-select" class="form-control">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <a id="addtocart" class="btn btn-primary" onclick="addToCart();">Add to Cart</a>
+      </form>
+
+      <p></p>
+      <pre><code class="language-javascript line-numbers">function addToCart() {
+  var value = $("#conversion-select").val();
+  alert(value + " products added to cart!");
+  window._fbq.push(["track", "6013916973461", {value:100 * value, "currency": "USD"}]);
+}</code></pre>
+    </div><!-- panel-body -->
+  </div><!-- panel -->
+
+  <div id="conversion-multi-button-panel" class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{messages.conversion_panel_head_2}}</h3>
+    </div>
+    <div class="panel-body">
+      <p>{{messages.cvrp_p_8}}</p>
+
+      <a class="btn btn-primary" onclick="multiButton('1');">Button 1</a>
+      <a class="btn btn-primary" onclick="multiButton('2');">Button 2</a>
+      <a class="btn btn-primary" onclick="multiButton('3');">Button 3</a>
+
+      <p></p>
+      <pre><code class="language-javascript line-numbers">function multiButton(index) {
+  var conversion_pixel_ids = ["0", "6020061914061", "6013560348461", "6020056500061"];
+  if (index <= 0 || index >= conversion_pixel_ids.length) {
+    alert("Incorrect button index of " + index);
+  } else {
+    var conversion_pixel_id = conversion_pixel_ids[index];
+    alert("Triggering conversion event for button " + index + "!");
+    window._fbq.push(["track", conversion_pixel_id, {"value": "0", "currency": "USD"}]);
+  }
+}</code></pre>
+    </div><!-- panel-body -->
+  </div><!-- panel -->
+</div>
+
+</div><!-- id="mainCol" -->
+
+<div class="col-md-3" id="rightCol">
+
+  <ul class="nav nav-stacked" id="sidebar">
+    <li><a href="#sec-pixel">{{messages.cvrp_title}}</a></li>
+    <li><a href="#sec-dynamic">{{messages.cvrp_title_1}}</a></li>
+  </ul>
+
+</div>
+
+<!-- Conversion code dynamic sample start -->
+<script>
+function addToCart() {
+  var value = $("#conversion-select").val();
+  alert(value + " products added to cart!");
+  window._fbq.push(["track", "6013916973461", {"value": 100 * value, "currency": "USD"}]);
+}
+function multiButton(index) {
+  var conversion_pixel_ids = ["0", "6020061914061", "6013560348461", "6020056500061"];
+  if (index <= 0 || index >= conversion_pixel_ids.length) {
+    alert("Incorrect button index of " + index);
+  } else {
+    var conversion_pixel_id = conversion_pixel_ids[index];
+    alert("Triggering conversion event for button " + index + "!");
+    window._fbq.push(["track", conversion_pixel_id, {"value": "0", "currency": "USD"}]);
+  }
+}
+</script>
+<!-- Conversion code dynamic sample end -->
+{% endblock %}

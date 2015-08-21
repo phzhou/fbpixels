@@ -1,0 +1,222 @@
+{% extends 'pixels/base.html' %}
+{% block content %}
+<div class="col-md-9" id="mainCol">
+
+<a class="anchor" id="sec-overview"></a>
+<h1>Custom Audience Pixels</h1>
+<p>{{messages.up_p_1}}</p>
+
+<pre><code class="language-markup line-numbers">
+&lt;script&gt;
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version=&#39;2.0&#39;;n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,&#39;script&#39;,&#39;//connect.facebook.net/en_US/fbevents.js&#39;);
+
+fbq(&#39;init&#39;, &#39;184295785098311&#39;);
+fbq(&#39;track&#39;, &#39;PageView&#39;);
+&lt;/script&gt;
+&lt;noscript&gt;&lt;img height=&quot;1&quot; width=&quot;1&quot; style=&quot;display:none&quot;
+src=&quot;https://www.facebook.com/tr?id=184295785098311&amp;ev=PageView&amp;noscript=1&quot;
+/&gt;&lt;/noscript&gt;</code></pre>
+
+<p>{{messages.up_p_2}}</p>
+
+<p>{{messages.up_p_3}}</p>
+<ul>
+  <li>
+    <p>{{messages.up_p_4}}</p>
+  </li>
+  <li>
+    <p>{{messages.up_p_5}}</p>
+  </li>
+  <li>
+    <p>{{messages.up_p_6}}</p>
+  </li>
+  <li>
+    <p>{{messages.up_p_7}}</p>
+  </li>
+</ul>
+
+<a class="anchor" id="sec-standard"></a>
+<h1>Standard Events</h1>
+<p>{{messages.up_p_12}}</p>
+
+<table class="table table-bordered table-striped">
+<thead>
+<tr><th>Event Name</th><th>Event Description</th><th>Required Parameters</th></tr>
+</thead>
+<tbody>
+<tr><td><code>ViewContent</code></td><td>
+  <p>{{messages.up_p_14}}</p>
+</td><td></td></tr>
+<tr><td><code>Search</code></td><td>
+  <p>{{messages.up_p_15}}</p>
+</td><td></td></tr>
+<tr><td><code>AddToCart</code></td><td>
+  <p>{{messages.up_p_16}}</p>
+</td><td></td></tr>
+<tr><td><code>AddToWishlist</code></td><td>
+  <p>{{messages.up_p_17}}</p>
+</td><td></td></tr>
+<tr><td><code>InitiateCheckout</code></td><td>
+  <p>{{messages.up_p_18}}</p>
+</td><td></td></tr>
+<tr><td><code>AddPaymentInfo</code></td><td>
+  <p>{{messages.up_p_19}}</p>
+</td><td></td></tr>
+<tr><td><code>Purchase</code></td><td>
+  <p>{{messages.up_p_20}}</p>
+</td><td>value, currency</td></tr>
+<tr><td><code>Lead</code></td><td>
+  <p>{{messages.up_p_21}}</p>
+</td><td></td></tr>
+<tr><td><code>CompleteRegistration</code></td><td>
+  <p>{{messages.up_p_22}}</p>
+</td><td></td></tr>
+</tbody>
+</table>
+
+  <a class="anchor" id="sec-custom"></a>
+  <h1>Custom Events</h1>
+  <p>{{messages.up_p_24}}</p>
+
+<table class="table table-bordered table-striped">
+<thead>
+<tr><th>Event Name</th><th>Event Description</th><th>Required Parameters</th></tr>
+</thead>
+<tbody>
+<tr><td>-</td><td>
+  <p>{{messages.up_p_25}}</p>
+</td><td>event</td></tr>
+</tbody>
+</table>
+
+Example: <code>JavaScript</code>
+<pre><code class="language-javascript line-numbers">// Report one of the 9 predefined website events
+fbq(&#39;track&#39;, &#39;Purchase&#39;, { value: 9.99, currency: &#39;USD&#39;});
+
+// Report a custom website event
+fbq(&#39;trackCustom&#39;, &#39;MyCustomEvent&#39;, { myParam: &#39;abc&#39; });</code></pre>
+
+Example: <code>Image</code>
+<pre><code class="language-markup line-numbers">// Report one of the 9 predefined website events
+&lt;img height=&quot;1&quot; width=&quot;1&quot; alt=&quot;&quot; style=&quot;display:none&quot;
+src=&quot;https://www.facebook.com/tr?id=&lt;fb_pixel_id&gt;&amp;amp;ev=Lead&amp;amp;cd[value]=9.99&amp;amp;cd[currency]=USD&amp;amp;noscript=1&quot; /&gt;
+
+// Report a custom website event
+&lt;img height=&quot;1&quot; width=&quot;1&quot; alt=&quot;&quot; style=&quot;display:none&quot;
+src=&quot;https://www.facebook.com/tr?id=&lt;fb_pixel_id&gt;&amp;amp;ev=myCustomEvent&amp;amp;cd[myParam]=abc&amp;amp;noscript=1&quot; /&gt;</code></pre>
+
+<a class="anchor" id="sec-dynamic"></a>
+  <h1>Dynamic Events</h1>
+  <p>{{messages.up_p_26}}</p>
+  <p>{{messages.up_p_27}}</p>
+  <pre><code class="language-markup line-numbers">
+&lt;script&gt;
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version=&#39;2.0&#39;;n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,&#39;script&#39;,&#39;//connect.facebook.net/en_US/fbevents.js&#39;);
+
+fbq(&#39;init&#39;, &#39;184295785098311&#39;);
+&lt;/script&gt;</code></pre>
+
+  <p>{{messages.up_p_33}}</p>
+
+  <div id="wca-button" class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Firing event on button click</h3>
+    </div>
+    <div class="panel-body">
+      <div class="">
+        <button class="btn btn-primary" onclick="onButtonClick('1');">Button 1</button>
+        <button class="btn btn-primary" onclick="onButtonClick('2');">Button 2</button>
+        <button class="btn btn-primary" onclick="onButtonClick('3');">Button 3</button>
+      </div>
+      <p></p>
+      <pre><code class="language-javascript line-numbers">function onButtonClick(id) {
+  alert("You clicked on Button " + id + "!");
+  fbq.push(["trackCustom", "ButtonClick", {id:id}]);
+}</code></pre>
+    </div><!-- panel-body -->
+  </div><!-- panel -->
+
+  <div id="wca-select-panel" class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Firing event on button click</h3>
+    </div>
+    <div class="panel-body">
+      <form class="form-inline">
+        <label for="wca-select">Select value: </label>
+        <select id="wca-select" class="form-control">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <a class="btn btn-primary" onclick="onSelect();">OK</a>
+        </form>
+
+      <p></p>
+      <pre><code class="language-javascript line-numbers">function onSelect() {
+  var value = $("#wca-select").val();
+  alert("You selected " + value + "!");
+  fbq.push(["trackCustom", "Select", {value:value}]);
+}</code></pre>
+    </div><!-- panel-body -->
+  </div><!-- panel -->
+
+  <!-- Setup WCA with rules start -->
+  <a class="anchor" id="sec-setup"></a>
+  <h1>Setup WCA with Event Data</h1>
+  <p>{{messages.up_p_28}}</p>
+  <div class="screenshot">
+    <img src="/static/images/website_traffic.png" />
+  </div>
+  <p>{{messages.up_p_29}}</p>
+  <div class="screenshot">
+    <img class="screenshot" src="/static/images/url_or_event.png" />
+  </div>
+  <p>{{messages.up_p_30}}</p>
+  <div class="screenshot">
+    <img class="screenshot" src="/static/images/list_of_events.png" />
+  </div>
+  <p>{{messages.up_p_31}}</p>
+  <div class="screenshot">
+    <img class="screenshot" src="/static/images/wca_for_button.png" />
+  </div>
+  <p>{{messages.up_p_32}}</p>
+  <!-- Setup WCA with rules end -->
+
+
+</div><!-- id="mainCol" -->
+
+<div class="col-md-3" id="rightCol">
+  <ul class="nav nav-stacked" id="sidebar">
+    <li><a href="#sec-overview">Custom Audience Pixels</a></li>
+    <li><a href="#sec-standard">Standard Events</a></li>
+    <li><a href="#sec-custom">Custom Events</a></li>
+    <li><a href="#sec-dynamic">Dynamic Events</a></li>
+    <li><a href="#sec-setup">Custom Audience Setup</a></li>
+  </ul>
+</div>
+
+<!-- Dynamic WCA code start -->
+<script>
+function onButtonClick(id) {
+  alert("You clicked on Button " + id + "!");
+  fbq.push(["trackCustom", "ButtonClick", {id:id}]);
+}
+</script>
+<script>
+function onSelect() {
+  var value = $("#wca-select").val();
+  alert("You selected " + value + "!");
+  fbq.push(["trackCustom", "Select", {value:value}]);
+}
+</script>
+{% endblock %}

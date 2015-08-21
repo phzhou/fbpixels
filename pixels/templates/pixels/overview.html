@@ -1,0 +1,33 @@
+{% extends 'pixels/base.html' %}
+
+{% block content %}
+
+<!-- Overview -->
+<link href="/static/css/overview.css" rel="stylesheet">
+
+<div class="col-md-12" id="mainCol">
+<div id="overview">
+  <h2>{{messages.overview_title}}</h2>
+  <p>{{messages.overview_p_1}}</p>
+  <p>{{messages.overview_p_2}}</p>
+  <div id="wca" class="panel panel-default">
+    <div class="panel-body">
+      <p>{{messages.overview_p_3}}</p>
+      <a class="btn btn-primary" href='/up'>{{messages.up_title}}</a>
+    </div>
+  </div>
+  <div id="conversion" class="panel panel-default">
+    <div class="panel-body">
+      <p>{{messages.overview_p_4}}</p>
+      <a class="btn btn-primary" href='/conversion'>{{messages.cvrp_title}}</a>
+    </div>
+  </div>
+  <div id="helper" class="panel panel-default">
+    <div class="panel-body">
+      <p>{{messages.overview_p_5}}</p>
+    </div>
+  </div>
+</div>
+</div><!-- id="mainCol" -->
+
+{% endblock %}
